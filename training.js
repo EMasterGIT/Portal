@@ -38,6 +38,7 @@ function showTraining() {
         </form>
         <div id="trainingList" class="row"></div>
         <button class="btn btn-danger mt-3" onclick="clearTrainings()">Kustuta kõik treeningud</button>
+        <button id="toggleDarkMode" class="btn btn mt-3" onclick="toggleDarkMode()">Lülita tume versioon</button>
     `;
 
     document.getElementById("trainingForm").addEventListener("submit", addTraining);
@@ -82,6 +83,7 @@ function displayTrainings() {
                     <p class="card-text">Sagedus: ${training.frequency} korda nädalas</p>
                     <p class="card-text">Kommentaar: ${training.comments}</p>
                     <button class="btn btn-danger" onclick="deleteTraining(${index})">Kustuta</button>
+                    
                 </div>
             </div>
         `;
@@ -99,4 +101,12 @@ function deleteTraining(index) {
 function clearTrainings() {
     localStorage.removeItem("trainings");
     displayTrainings();
+}
+
+function toggleDarkMode() {
+    const toggleButton = document.getElementById("toggleDarkMode");
+    toggleButton.classList.toggle("btn-light");
+    toggleButton.classList.toggle("btn-dark");
+    toggleButton.textContent = toggleButton.classList.contains("btn-dark") ? "Lülita heledam versioon" : "Lülita tume versioon";
+    document.body.classList.toggle("dark-mode");
 }

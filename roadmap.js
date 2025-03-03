@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Ootame, kuni leht on täielikult laaditud
     const roadmapContainer = document.getElementById("roadmapContainer");
     const homeButton = document.getElementById("home-tab2");
 
@@ -11,11 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("home-tab2 button not found!");
         return;
     }
-
+    // Lisame sündmuse kuulaja, et "Home" nupule klõpsates laaditakse avaleht
     homeButton.addEventListener("click", function () {
         setSelectedPath('Home');
     });
-
+    // Määrame roadmapi andmed
     window.roadmapData = {
         Backend: {
             "Alused": [
